@@ -163,3 +163,4 @@ cython_debug/
 *.code-workspace
 *.sql
 queries/
+results/
