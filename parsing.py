@@ -36,7 +36,8 @@ for file in files:
             col = ('ff join' if ((name in facts) and (
                 name in dimensions)) else 'df join')
 
-            df.at[i, 'joins'] = join.side+'_'+join.kind
+            df.at[i, 'joins'] = (join.side if join.side else 'RIGHT') + \
+                '_' + (join.kind if join.kind else 'INNER')
             df.at[i, col] += 1
 
         subqueries = parsed.find_all(exp.Subquery)
